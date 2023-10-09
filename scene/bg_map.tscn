@@ -103,3 +103,13 @@ texture = ExtResource("2_lh8cw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(912, 424)
 shape = SubResource("RectangleShape2D_kaxwa")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1980.0
+offset_top = 120.0
+offset_right = 2135.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 24
+text = "random"
+
+[connection signal="pressed" from="Button" to="." method="random_tile"]
