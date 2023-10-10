@@ -12,6 +12,7 @@ func _process(delta):
 	pass
 	
 
+# 
 func random_tile():
 	# 清除现有的装饰地块
 	tilemap.clear_layer(1)

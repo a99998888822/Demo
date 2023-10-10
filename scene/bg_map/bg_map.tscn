@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://biv0lkmumys8m"]
+[gd_scene load_steps=6 format=3 uid="uid://biv0lkmumys8m"]
 
-[ext_resource type="Script" path="res://scene/bg_map.gd" id="1_17n1d"]
-[ext_resource type="Texture2D" uid="uid://dp7ktf6ww06o5" path="res://scene/bg.png" id="1_l1114"]
-[ext_resource type="Texture2D" uid="uid://c1g2j6hnxm3gi" path="res://icon.svg" id="2_lh8cw"]
+[ext_resource type="Script" path="res://scene/bg_map/bg_map.gd" id="1_os6q6"]
+[ext_resource type="Texture2D" uid="uid://dp7ktf6ww06o5" path="res://scene/bg_map/bg.png" id="2_gayx0"]
+[ext_resource type="PackedScene" uid="uid://bq5g0d1xge0qx" path="res://scene/player/player.tscn" id="4_r537j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ropnh"]
-texture = ExtResource("1_l1114")
+texture = ExtResource("2_gayx0")
 16:0/0 = 0
 16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:0/0/physics_layer_0/angular_velocity = 0.0
@@ -27,15 +27,15 @@ texture = ExtResource("1_l1114")
 15:1/0 = 0
 15:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:1/0/physics_layer_0/angular_velocity = 0.0
-15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.5, -8, -1.625, 8, -8, 8)
+15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:1/0 = 0
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
-13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.75, -8, -1.375)
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:2/0 = 0
 14:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:2/0/physics_layer_0/angular_velocity = 0.0
-14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.125, -8, 8, -8, 8, 8, 1.5, 8)
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:0/0 = 0
 13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:0/0/physics_layer_0/angular_velocity = 0.0
@@ -60,11 +60,8 @@ texture = ExtResource("1_l1114")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ropnh")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxwa"]
-size = Vector2(140, 132)
-
 [node name="bg_map" type="Node2D"]
-script = ExtResource("1_17n1d")
+script = ExtResource("1_os6q6")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(6, 6)
@@ -87,23 +84,6 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(65535, 983041, 1, 131071, 983041, 1, 196607, 983041, 1, 262143, 983041, 1, 327679, 983041, 1, 393215, 983041, 1, 458751, 983041, 1, 524287, 983041, 1, 589823, 983041, 1, 655359, 983041, 1, 720895, 983041, 1, -65536, 917505, 2, -65535, 917505, 2, -65534, 917505, 2, -65533, 917505, 2, -65532, 917505, 2, -65531, 917505, 2, -65530, 917505, 2, -65529, 917505, 2, -65528, 917505, 2, -65527, 917505, 2, -65526, 917505, 2, -65525, 917505, 2, -65524, 917505, 2, -65523, 917505, 2, -65522, 917505, 2, -65521, 917505, 2, -65520, 917505, 2, -65519, 917505, 2, -65518, 917505, 2, -65517, 917505, 2, 20, 851969, 1, 65556, 851969, 1, 131092, 851969, 1, 196628, 851969, 1, 262164, 851969, 1, 327700, 851969, 1, 393236, 851969, 1, 458772, 851969, 1, 524308, 851969, 1, 589844, 851969, 1, 655380, 851969, 1, 720896, 917505, 0, 720897, 917505, 0, 720898, 917505, 0, 720899, 917505, 0, 720900, 917505, 0, 720901, 917505, 0, 720902, 917505, 0, 720903, 917505, 0, 720904, 917505, 0, 720905, 917505, 0, 720906, 917505, 0, 720907, 917505, 0, 720908, 917505, 0, 720909, 917505, 0, 720910, 917505, 0, 720911, 917505, 0, 720912, 917505, 0, 720913, 917505, 0, 720914, 917505, 0, 720915, 917505, 0, -1, 1048577, 0, 786431, 1048577, 1, 720916, 1114113, 1, -65516, 1114113, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(975, 547)
-zoom = Vector2(0.8, 0.8)
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-z_index = 5
-position = Vector2(-249, -109)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(911, 425)
-texture = ExtResource("2_lh8cw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(912, 424)
-shape = SubResource("RectangleShape2D_kaxwa")
-
 [node name="Button" type="Button" parent="."]
 offset_left = 1980.0
 offset_top = 120.0
@@ -111,5 +91,8 @@ offset_right = 2135.0
 offset_bottom = 203.0
 theme_override_font_sizes/font_size = 24
 text = "random"
+
+[node name="player" parent="." instance=ExtResource("4_r537j")]
+position = Vector2(477, 528)
 
 [connection signal="pressed" from="Button" to="." method="random_tile"]
