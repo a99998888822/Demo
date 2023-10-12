@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var playerAni = $AnimatedSprite2D
+@onready var playerAni = $PlayerAnimation
 
 var dir = Vector2.ZERO
 var speed = 300
@@ -9,12 +9,11 @@ var flip = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	choose_player("player2")
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# 鼠标的移动方式
+# 鼠标的移动方式
+func mouse_move():
 	var mouse_pos = get_global_mouse_position()
 	var self_pos = position
 	# 控制翻转
@@ -27,6 +26,55 @@ func _process(delta):
 	dir = (mouse_pos -self_pos).normalized()
 	velocity = dir * speed
 	move_and_slide()
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# todo 待测试
+@warning_ignore("unused_parameter")
+func _process(delta):
+	# 按照方向键移动
+	var move = Vector2(0,0)
+	if Input.is_action_pressed("ui_up"):
+		move.y += -1
+	if Input.is_action_pressed("ui_left"):
+		move.x += -1
+		flip = true
+	if Input.is_action_pressed("ui_down"):
+		move.y += 1
+	if Input.is_action_pressed("ui_right"):
+		move.x += 1
+		flip = false
+	playerAni.flip_h = flip	
+	# 控制移动
+	dir = move.normalized()
+	velocity = dir * speed
+	move_and_slide()
+	pass
+
+# 动态角色帧生成 先使用固定的960*240尺寸
+func choose_player(player):
+	var asset_path = "res://scene/player/assets/"
+	playerAni.sprite_frames.clear_all()
+	var sprite_frame_custom = SpriteFrames.new()
+	sprite_frame_custom.add_animation("default")
+	sprite_frame_custom.set_animation_loop("default", true)
+	# 完整雪碧图的大小
+	var texture_size = Vector2(960, 240)
+	# 单张动作的雪碧图的大小
+	var sprite_size = Vector2(240, 240)
+	# 获取根据type指向的雪碧图完整路径
+	var full_texture: Texture = load(asset_path + player + "/" + player + "-sheet.png")
+	# 选择雪碧图->切个->生成帧动画
+	var num_columns = int(texture_size.x / sprite_size.x)
+	var num_rows = int(texture_size.y / sprite_size.y)
+	for x in range(num_columns):
+		for y in range(num_rows):
+			var frame = AtlasTexture.new()
+			frame.atlas = full_texture
+			frame.region = Rect2(Vector2(x,y) * sprite_size, sprite_size)
+			sprite_frame_custom.add_frame("default", frame)
+	playerAni.sprite_frames = sprite_frame_custom
+	playerAni.play("default")
 	pass
 
 func _input(event):

@@ -11,8 +11,7 @@ func _ready():
 func _process(delta):
 	pass
 	
-
-# 
+# 生成随机的装饰地块
 func random_tile():
 	# 清除现有的装饰地块
 	tilemap.clear_layer(1)
