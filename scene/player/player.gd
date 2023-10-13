@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 @onready var playerAni = $PlayerAnimation
 
-var dir = Vector2.ZERO
-var speed = 300
-# 翻转
-var flip = false
+var dir = Vector2.ZERO # 移动方向
+var speed = 300 # 
+var flip = false # 翻转
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,20 +32,20 @@ func mouse_move():
 @warning_ignore("unused_parameter")
 func _process(delta):
 	# 按照方向键移动
-	var move = Vector2(0,0)
+	dir = Vector2(0,0)
 	if Input.is_action_pressed("ui_up"):
-		move.y += -1
+		dir.y += -1
 	if Input.is_action_pressed("ui_left"):
-		move.x += -1
+		dir.x += -1
 		flip = true
 	if Input.is_action_pressed("ui_down"):
-		move.y += 1
+		dir.y += 1
 	if Input.is_action_pressed("ui_right"):
-		move.x += 1
+		dir.x += 1
 		flip = false
 	playerAni.flip_h = flip	
 	# 控制移动
-	dir = move.normalized()
+	dir = dir.normalized()
 	velocity = dir * speed
 	move_and_slide()
 	pass
@@ -77,6 +76,7 @@ func choose_player(player):
 	playerAni.play("default")
 	pass
 
+# 监听输入
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		print("按下鼠标左键")
