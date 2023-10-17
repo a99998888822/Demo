@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://mu3f8wley2mf"]
+[gd_scene load_steps=5 format=3 uid="uid://mu3f8wley2mf"]
+
+[ext_resource type="Script" path="res://scene/weapon/weapon.gd" id="1_flidb"]
+[ext_resource type="Texture2D" uid="uid://cpuep3vq5cuej" path="res://scene/weapon/assets/weapon1/weapon1.png" id="1_gfp3u"]
+[ext_resource type="Material" uid="uid://ndieke8wrnko" path="res://scene/weapon/weapon.tres" id="2_xe52a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcmkp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gfp3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="weapon" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_flidb")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_xe52a")
+sprite_frames = SubResource("SpriteFrames_kcmkp")

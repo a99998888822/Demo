@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq5g0d1xge0qx"]
+[gd_scene load_steps=10 format=3 uid="uid://bq5g0d1xge0qx"]
 
 [ext_resource type="Texture2D" uid="uid://3b8ds0cgyyle" path="res://scene/player/assets/player1/player1-sheet.png" id="1_077pv"]
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_kpi4p"]
+[ext_resource type="PackedScene" uid="uid://bwcpddww8es5l" path="res://scene/weapon/now_weapons.tscn" id="3_2cf3e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lo6in"]
 atlas = ExtResource("1_077pv")
@@ -60,3 +61,5 @@ shape = SubResource("CapsuleShape2D_fgqti")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="now_weapons" parent="." instance=ExtResource("3_2cf3e")]
