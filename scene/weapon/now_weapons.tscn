@@ -7,11 +7,3 @@
 script = ExtResource("1_r51v2")
 
 [node name="weapon" parent="." instance=ExtResource("1_yndb5")]
-
-[node name="weapon2" parent="." instance=ExtResource("1_yndb5")]
-
-[node name="weapon3" parent="." instance=ExtResource("1_yndb5")]
-
-[node name="weapon4" parent="." instance=ExtResource("1_yndb5")]
-
-[node name="weapon5" parent="." instance=ExtResource("1_yndb5")]

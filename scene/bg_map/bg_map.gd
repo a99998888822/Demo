@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var tilemap = $TileMap
+var weapon_node = Object.new
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
