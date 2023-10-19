@@ -3,6 +3,7 @@
 [ext_resource type="Shader" path="res://scene/weapon/weapon2.gdshader" id="1_exxxo"]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource("1_exxxo")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0

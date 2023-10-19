@@ -24,3 +24,11 @@ metadata/_edit_group_ = true
 material = ExtResource("2_2v7g8")
 sprite_frames = SubResource("SpriteFrames_kcmkp")
 frame_progress = 0.00930078
+
+[node name="shoot_position" type="Marker2D" parent="."]
+position = Vector2(17, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

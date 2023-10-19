@@ -55,8 +55,8 @@ func choose_player(player):
 	var asset_path = "res://scene/player/assets/"
 	playerAni.sprite_frames.clear_all()
 	var sprite_frame_custom = SpriteFrames.new()
-	sprite_frame_custom.add_animation("default")
-	sprite_frame_custom.set_animation_loop("default", true)
+	sprite_frame_custom.add_animation(player)
+	sprite_frame_custom.set_animation_loop(player, true)
 	# 完整雪碧图的大小
 	var texture_size = Vector2(960, 240)
 	# 单张动作的雪碧图的大小
@@ -71,9 +71,9 @@ func choose_player(player):
 			var frame = AtlasTexture.new()
 			frame.atlas = full_texture
 			frame.region = Rect2(Vector2(x,y) * sprite_size, sprite_size)
-			sprite_frame_custom.add_frame("default", frame)
+			sprite_frame_custom.add_frame(player, frame)
 	playerAni.sprite_frames = sprite_frame_custom
-	playerAni.play("default")
+	playerAni.play(player)
 	pass
 
 # 监听输入
