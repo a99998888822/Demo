@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://biv0lkmumys8m"]
+[gd_scene load_steps=9 format=3 uid="uid://biv0lkmumys8m"]
 
 [ext_resource type="Script" path="res://scene/bg_map/bg_map.gd" id="1_os6q6"]
 [ext_resource type="Texture2D" uid="uid://dp7ktf6ww06o5" path="res://scene/bg_map/bg.png" id="2_gayx0"]
 [ext_resource type="PackedScene" uid="uid://bq5g0d1xge0qx" path="res://scene/player/player.tscn" id="4_r537j"]
+[ext_resource type="Texture2D" uid="uid://c1g2j6hnxm3gi" path="res://icon.svg" id="4_utewb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ropnh"]
 texture = ExtResource("2_gayx0")
@@ -28,38 +29,62 @@ texture = ExtResource("2_gayx0")
 15:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:1/0/physics_layer_0/angular_velocity = 0.0
 15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:1/0/custom_data_0 = true
 13:1/0 = 0
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0/custom_data_0 = true
 14:2/0 = 0
 14:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:2/0/physics_layer_0/angular_velocity = 0.0
 14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:2/0/custom_data_0 = true
 13:0/0 = 0
 13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:0/0/physics_layer_0/angular_velocity = 0.0
+13:0/0/custom_data_0 = true
 14:0/0 = 0
 14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:0/0/physics_layer_0/angular_velocity = 0.0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:0/0/custom_data_0 = true
 15:2/0 = 0
 15:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:2/0/physics_layer_0/angular_velocity = 0.0
+15:2/0/custom_data_0 = true
 14:1/0 = 0
 14:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:1/0/physics_layer_0/angular_velocity = 0.0
 13:2/0 = 0
 13:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:2/0/physics_layer_0/angular_velocity = 0.0
+13:2/0/custom_data_0 = true
 15:0/0 = 0
 15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:0/0/physics_layer_0/angular_velocity = 0.0
+15:0/0/custom_data_0 = true
 
 [sub_resource type="TileSet" id="TileSet_6anmw"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "isWall"
+custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_ropnh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvvgh"]
+size = Vector2(120, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_toy6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_utewb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="bg_map" type="Node2D"]
 script = ExtResource("1_os6q6")
@@ -96,6 +121,17 @@ text = "random"
 
 [node name="player" parent="." instance=ExtResource("4_r537j")]
 position = Vector2(477, 528)
-collision_mask = 3
+
+[node name="enemy" type="CharacterBody2D" parent="." groups=["enemy"]]
+position = Vector2(1302, 95)
+collision_layer = 8
+collision_mask = 10
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("RectangleShape2D_tvvgh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+sprite_frames = SubResource("SpriteFrames_toy6b")
 
 [connection signal="pressed" from="Button" to="." method="random_tile"]

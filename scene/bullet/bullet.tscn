@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdedswebsk4lj"]
+[gd_scene load_steps=6 format=3 uid="uid://cdedswebsk4lj"]
 
 [ext_resource type="Script" path="res://scene/bullet/bullet.gd" id="1_nsbdc"]
 [ext_resource type="Texture2D" uid="uid://b2yuait46dgqd" path="res://scene/bullet/asset/bullet1/bullet.png" id="1_sll8c"]
@@ -17,8 +17,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_orkvc"]
 radius = 31.0644
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qkxx"]
+radius = 32.0
+
 [node name="bullet" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+z_index = 15
+scale = Vector2(0.3, 0.3)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_nsbdc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -26,3 +32,12 @@ sprite_frames = SubResource("SpriteFrames_khiwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_orkvc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2qkxx")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

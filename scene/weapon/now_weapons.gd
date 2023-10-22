@@ -24,7 +24,6 @@ func _ready():
 	for i in weapon_num:
 		var weapon = weapon_template.instantiate()
 		var selected_level = 'level_' + str(ran.randi_range(1, 5))
-		print("随机生成颜色:" + selected_level)
 		weapon.selected_level = weapon_level[selected_level]
 		var weapon_rad = unit * i
 		var end_pos = weapon.position + Vector2(weapon_redius, 0).rotated(weapon_rad)
