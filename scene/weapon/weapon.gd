@@ -39,10 +39,21 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy") and !attack_enemies.has(body):
 		attack_enemies.append(body)
+	sort_enemy()
 	pass # Replace with function body.
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("enemy") and attack_enemies.has(body):
 		attack_enemies.remove_at(attack_enemies.find(body))
+	sort_enemy()
 	pass # Replace with function body.
+
+# 给敌人排序
+func sort_enemy():
+	if attack_enemies.size() != 0:
+		attack_enemies.sort_custom(
+			func(x, y):
+				return x.global_position.distance_to(self.global_position) < y.global_position.distance_to(self.global_position)
+		)
+	pass

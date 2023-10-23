@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var playerAni = $PlayerAnimation
 
 var dir = Vector2.ZERO # 移动方向
-var speed = 300 # 
+var speed = 500 # 
 var flip = false # 翻转
 
 # Called when the node enters the scene tree for the first time.
