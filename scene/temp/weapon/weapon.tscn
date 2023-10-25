@@ -16,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yd8g3"]
-radius = 220.201
+radius = 268.202
 
 [node name="weapon" type="Node2D"]
 scale = Vector2(5, 5)

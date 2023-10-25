@@ -1,7 +1,7 @@
 extends Node
 
 # 资源路径
-var room_box_path = "res://scene/room_box/room_box.tscn"
+const room_box_path = "res://scene/room_box/room_box.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

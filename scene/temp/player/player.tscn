@@ -85,5 +85,4 @@ shape = SubResource("CircleShape2D_smagy")
 debug_color = Color(0, 0.87451, 0.521569, 0.419608)
 
 [connection signal="body_entered" from="drop_item_area" to="." method="_on_drop_item_area_body_entered"]
-[connection signal="body_entered" from="drop_item_area" to="now_weapons" method="_on_drop_item_area_body_entered"]
 [connection signal="body_entered" from="stop_area" to="." method="_on_stop_area_body_entered"]
