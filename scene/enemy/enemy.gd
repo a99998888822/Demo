@@ -42,10 +42,14 @@ func enemy_flash():
 # 消灭函数
 func enemy_dead():
 	GameMain.animation_scene_obj.run_animation({
-		"box": GameMain.duplicate_node,
 		"ani_name": "enemies_dead",
 		"position": self.global_position,
 		"scale": Vector2(0.7, 0.7)
+	})
+	GameMain.drop_items_scene_obj.gen_drop_item({
+		"ani_name": "gold",
+		"position": self.global_position,
+		"scale": Vector2(3, 3)
 	})
 	self.queue_free()
 	pass

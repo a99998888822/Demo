@@ -2,6 +2,8 @@ extends Node
 
 var animation_scene = preload("res://scene/animation/animations.tscn")
 var animation_scene_obj = null 
+var drop_items_scene = preload("res://scene/drop_items/drop_items.tscn")
+var drop_items_scene_obj = null 
 
 var duplicate_node = null
 
@@ -9,6 +11,8 @@ var duplicate_node = null
 func _ready():
 	animation_scene_obj = animation_scene.instantiate()
 	add_child(animation_scene_obj)
+	drop_items_scene_obj = drop_items_scene.instantiate()
+	add_child(drop_items_scene_obj)
 	
 	var node2d = Node2D.new()
 	node2d.name = "duplicate_node"

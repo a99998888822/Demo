@@ -81,3 +81,15 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		print("按下鼠标左键")
 	pass
+	
+func _on_drop_item_area_body_entered(body):
+	if body.is_in_group("drop_item"):
+		if body.has_method("pick"):
+			body.pick()
+	pass # Replace with function body.
+
+func _on_stop_area_body_entered(body):
+	if body.is_in_group("drop_item"):
+		if body.has_method("pick_up"):
+			body.pick_up()
+	pass # Replace with function body.

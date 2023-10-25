@@ -10,12 +10,14 @@ func _process(delta):
 	pass
 
 '''
-option.box 动画父级
-option.ani_name 动画名称
-option.position 动画生成坐标
-option.scale 动画缩放登记
+options.box 动画父级
+options.ani_name 动画名称
+options.position 动画生成坐标
+options.scale 动画缩放等级
 '''
 func run_animation(options):
+	if !options.has("box"):
+		options.box = GameMain.duplicate_node
 	var ani_temp = self.duplicate()
 	options.box.add_child(ani_temp)
 	ani_temp.show()
