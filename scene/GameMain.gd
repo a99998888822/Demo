@@ -1,8 +1,8 @@
 extends Node
 
-var animation_scene = preload("res://scene/animation/animations.tscn")
+var animation_scene = preload("res://scene/temp/animation/animations.tscn")
 var animation_scene_obj = null 
-var drop_items_scene = preload("res://scene/drop_items/drop_items.tscn")
+var drop_items_scene = preload("res://scene/temp/drop_items/drop_items.tscn")
 var drop_items_scene_obj = null 
 
 var duplicate_node = null

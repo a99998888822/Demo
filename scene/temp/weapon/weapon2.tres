@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6e8uitnxd4ot"]
+
+[ext_resource type="Shader" path="res://scene/temp/weapon/weapon2.gdshader" id="1_exxxo"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_exxxo")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true

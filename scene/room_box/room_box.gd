@@ -1,7 +1,6 @@
-extends Node
+extends Node2D
 
-# 资源路径
-var room_box_path = "res://scene/room_box/room_box.tscn"
+var simple_room = preload("res://scene/room_box/room_box.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

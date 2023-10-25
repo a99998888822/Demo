@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="res://scene/bg_map/bg_map.tscn"
+run/main_scene="res://scene/temp/bg_map/bg_map.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameMain="*res://scene/GameMain.gd"
+GlobalConstant="*res://scene/constants/global_constant.gd"
 
 [display]
 

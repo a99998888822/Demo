@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ndieke8wrnko"]
+
+[ext_resource type="Shader" path="res://scene/temp/weapon/weapon.gdshader" id="1_tbhxd"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_tbhxd")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
