@@ -1,6 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn8c31upxaga2"]
+[gd_scene load_steps=22 format=3 uid="uid://dn8c31upxaga2"]
 
+[ext_resource type="Shader" path="res://scene/room_box/simple_room.gdshader" id="1_1tvdc"]
 [ext_resource type="Texture2D" uid="uid://n81xvu77xjn5" path="res://scene/room_box/assets/dungeon/Map_Rooms.png" id="1_5st3a"]
+[ext_resource type="Script" path="res://scene/room_box/simple_room.gd" id="1_hafnt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qc8o"]
+resource_local_to_scene = true
+shader = ExtResource("1_1tvdc")
+shader_parameter/room_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnta6"]
 atlas = ExtResource("1_5st3a")
@@ -124,7 +131,9 @@ animations = [{
 
 [node name="simple_room" type="Node2D" groups=["room"]]
 scale = Vector2(10, 10)
+script = ExtResource("1_hafnt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_5qc8o")
 sprite_frames = SubResource("SpriteFrames_qe82n")
 frame = 14
