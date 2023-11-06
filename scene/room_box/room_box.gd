@@ -22,10 +22,7 @@ func _process(delta):
 func init_random_room(size):
 	# 初始房间
 	var now_position = Vector2.ZERO
-	var start_room = simple_room_template.instantiate()
-	start_room.room_color = room_color['enter']
-	start_room.position = now_position
-	self.add_child(start_room)
+	init_start_room(now_position)
 	room_dict[now_position] = true
 	var ran = RandomNumberGenerator.new()
 	var i = 1
@@ -52,7 +49,20 @@ func init_random_room(size):
 			# 如果是最后一个房间，修改颜色，设置出口
 			if i == size:
 				room.room_color = room_color['exit']
-			room_dict[now_position] = true
-			room.position = now_position
-			self.add_child(room)
+			else:
+				room_dict[now_position] = true
+				room.position = now_position
+				self.add_child(room)
 	pass
+
+# 初始化开始房间
+func init_start_room(position):
+	
+# 初始化开始房间
+func init_start_room(position):
+	var start_room = simple_room_template.instantiate()
+	start_room.room_color = room_color['enter']
+	start_room.position = position
+	self.add_child(start_room)
+	pass
+	
