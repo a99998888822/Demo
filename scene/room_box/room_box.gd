@@ -1,6 +1,7 @@
 extends Node2D
 
 var simple_room_template = preload(GlobalConstant.simple_room_path)
+var door_template = preload(GlobalConstant.door_path)
 var room_dict = {}
 
 enum Direction{UP, DOWN, LEFT, RIGHT}
@@ -22,6 +23,7 @@ func _process(delta):
 func init_random_room(size):
 	# 初始房间
 	var now_position = Vector2.ZERO
+	var from_direction = -1
 	init_start_room(now_position)
 	room_dict[now_position] = true
 	var ran = RandomNumberGenerator.new()
@@ -31,8 +33,13 @@ func init_random_room(size):
 		i += 1 
 		var dir = ran.randi_range(0, 3)
 		var room = simple_room_template.instantiate()
+		# 设置连接上一个房间的门
+		# set_door(room, from_direction, now_position)
+		# 设置当前房间出去的门
+		set_door(dir, now_position)
 		match dir:
 			Direction.UP:
+				# todo 设置上方一个出口，下一张地图设置下方一个入口
 				now_position.y += GlobalConstant.room_height
 			Direction.DOWN:
 				now_position.y -= GlobalConstant.room_height
@@ -41,6 +48,7 @@ func init_random_room(size):
 			Direction.RIGHT:
 				now_position.x += GlobalConstant.room_width
 		print(str(i) + ":" + str(dir))
+		from_direction = dir
 		if room_dict.has(now_position):
 			# 当前位置已存在房间,重新开始循环
 			print("当前位置已存在房间,重新开始循环")
@@ -48,7 +56,7 @@ func init_random_room(size):
 		else:
 			# 如果是最后一个房间，修改颜色，设置出口
 			if i == size:
-				room.room_color = room_color['exit']
+				init_end_room(now_position)
 			else:
 				room_dict[now_position] = true
 				room.position = now_position
@@ -57,12 +65,39 @@ func init_random_room(size):
 
 # 初始化开始房间
 func init_start_room(position):
-	
-# 初始化开始房间
-func init_start_room(position):
 	var start_room = simple_room_template.instantiate()
 	start_room.room_color = room_color['enter']
 	start_room.position = position
 	self.add_child(start_room)
 	pass
+	
+# 初始化开始房间
+func init_end_room(position):
+	var end_room = simple_room_template.instantiate()
+	end_room.room_color = room_color['exit']
+	end_room.position = position
+	self.add_child(end_room)
+	pass
+	
+# 设置门
+func set_door(direction, now_position):
+	var door = door_template.instantiate()
+	match direction:
+		Direction.UP:
+			now_position.y += GlobalConstant.door_offset_height
+		Direction.DOWN:
+			door.set_global_rotation_degrees(180)
+			now_position.y -= GlobalConstant.door_offset_height
+		Direction.LEFT:
+			door.set_global_rotation_degrees(-90)
+			now_position.x -= GlobalConstant.door_offset_width
+		Direction.RIGHT:
+			door.set_global_rotation_degrees(90)
+			now_position.x += GlobalConstant.door_offset_width
+		_:
+			return
+	door.position = now_position
+	self.add_child(door)
+	pass
+			
 	

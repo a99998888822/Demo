@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://buw38gjtdt6p1"]
+
+[ext_resource type="Texture2D" uid="uid://n81xvu77xjn5" path="res://scene/room_box/assets/dungeon/Map_Rooms.png" id="1_pjcdp"]
+[ext_resource type="Shader" path="res://scene/room_box/simple_room.gdshader" id="1_up3ye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eg6cq"]
+shader = ExtResource("1_up3ye")
+shader_parameter/room_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hi0o"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27snj"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irrc7"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(32, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24g3s"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(48, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58a4k"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdkmp"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(16, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a5nk"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(32, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7rbh"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(48, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyaak"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(0, 16, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhjsi"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(16, 16, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ykac"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(32, 16, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqt72"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(48, 16, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvmp4"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(0, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t21rc"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(16, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj33o"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(32, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ksa6"]
+atlas = ExtResource("1_pjcdp")
+region = Rect2(48, 24, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgifi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hi0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27snj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irrc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24g3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58a4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdkmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a5nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7rbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyaak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhjsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ykac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqt72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvmp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t21rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj33o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ksa6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="door" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_eg6cq")
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_vgifi")
+frame = 3

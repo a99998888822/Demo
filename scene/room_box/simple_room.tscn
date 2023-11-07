@@ -130,10 +130,10 @@ animations = [{
 }]
 
 [node name="simple_room" type="Node2D" groups=["room"]]
-scale = Vector2(10, 10)
 script = ExtResource("1_hafnt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_5qc8o")
+scale = Vector2(67.5, 67.5)
 sprite_frames = SubResource("SpriteFrames_qe82n")
-frame = 14
+frame = 15
