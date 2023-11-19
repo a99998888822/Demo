@@ -12,7 +12,7 @@ const room_color = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	init_random_room(20)
+	init(20)
 	pass # Replace with function body.
 
 
@@ -20,7 +20,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func init_random_room(size):
+# 初始化
+func init(size):
+	init_basic_room(size)
+	init_room_exit()
+	pass
+
+# 初始化基本房间
+func init_basic_room(size):
 	# 初始房间
 	var now_position = Vector2.ZERO
 	var from_direction = -1
@@ -36,7 +43,7 @@ func init_random_room(size):
 		# 设置连接上一个房间的门
 		# set_door(room, from_direction, now_position)
 		# 设置当前房间出去的门
-		set_door(dir, now_position)
+		# set_door(dir, now_position)
 		match dir:
 			Direction.UP:
 				# todo 设置上方一个出口，下一张地图设置下方一个入口
@@ -61,6 +68,20 @@ func init_random_room(size):
 				room_dict[now_position] = true
 				room.position = now_position
 				self.add_child(room)
+	pass
+
+# 初始化每个房间的出口
+func init_room_exit():
+	for pos in room_dict:
+		# 判断上面
+		if room_dict.has(pos + Vector2(0, GlobalConstant.room_height)):
+			set_door(Direction.UP, pos)
+		if room_dict.has(pos - Vector2(0, GlobalConstant.room_height)):
+			set_door(Direction.DOWN, pos)
+		if room_dict.has(pos - Vector2(GlobalConstant.room_width, 0)):
+			set_door(Direction.LEFT, pos)
+		if room_dict.has(pos + Vector2(GlobalConstant.room_width, 0)):
+			set_door(Direction.RIGHT, pos)
 	pass
 
 # 初始化开始房间
