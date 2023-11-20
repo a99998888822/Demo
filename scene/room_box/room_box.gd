@@ -105,9 +105,9 @@ func set_door(direction, now_position):
 	var door = door_template.instantiate()
 	match direction:
 		Direction.UP:
+			door.set_global_rotation_degrees(180)
 			now_position.y += GlobalConstant.door_offset_height
 		Direction.DOWN:
-			door.set_global_rotation_degrees(180)
 			now_position.y -= GlobalConstant.door_offset_height
 		Direction.LEFT:
 			door.set_global_rotation_degrees(-90)

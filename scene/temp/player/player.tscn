@@ -1,44 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq5g0d1xge0qx"]
+[gd_scene load_steps=7 format=3 uid="uid://bq5g0d1xge0qx"]
 
-[ext_resource type="Texture2D" uid="uid://3b8ds0cgyyle" path="res://scene/temp/player/assets/player1/player1-sheet.png" id="1_077pv"]
 [ext_resource type="Script" path="res://scene/temp/player/player.gd" id="1_kpi4p"]
 [ext_resource type="PackedScene" uid="uid://bwcpddww8es5l" path="res://scene/temp/weapon/now_weapons.tscn" id="3_2cf3e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lo6in"]
-atlas = ExtResource("1_077pv")
-region = Rect2(0, 0, 240, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptwch"]
-atlas = ExtResource("1_077pv")
-region = Rect2(240, 0, 240, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gm6s8"]
-atlas = ExtResource("1_077pv")
-region = Rect2(480, 0, 240, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsmoi"]
-atlas = ExtResource("1_077pv")
-region = Rect2(720, 0, 240, 240)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mlo2i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lo6in")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ptwch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gm6s8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rsmoi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 7.0
-}]
+animations = []
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgqti"]
 radius = 53.6651
@@ -60,7 +26,7 @@ metadata/_edit_group_ = true
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_mlo2i")
-autoplay = "default"
+animation = &""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.931704, 0.821197)
@@ -78,7 +44,7 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_18gwn")
 
 [node name="stop_area" type="Area2D" parent="."]
-collision_mask = 16
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stop_area"]
 shape = SubResource("CircleShape2D_smagy")

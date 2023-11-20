@@ -6,6 +6,13 @@ var dir = Vector2.ZERO # 移动方向
 var speed = 500 # 
 var flip = false # 翻转
 
+var now_hp = 100
+var max_hp = 100
+var max_exp = 5
+var now_exp = 0
+var level = 1
+var gold = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	choose_player("player2")
@@ -55,8 +62,8 @@ func choose_player(player):
 	var asset_path = "res://scene/temp/player/assets/"
 	playerAni.sprite_frames.clear_all()
 	var sprite_frame_custom = SpriteFrames.new()
-	sprite_frame_custom.add_animation(player)
-	sprite_frame_custom.set_animation_loop(player, true)
+	# sprite_frame_custom.add_animation(player)
+	# sprite_frame_custom.set_animation_loop(player, true)
 	# 完整雪碧图的大小
 	var texture_size = Vector2(960, 240)
 	# 单张动作的雪碧图的大小
@@ -71,9 +78,9 @@ func choose_player(player):
 			var frame = AtlasTexture.new()
 			frame.atlas = full_texture
 			frame.region = Rect2(Vector2(x,y) * sprite_size, sprite_size)
-			sprite_frame_custom.add_frame(player, frame)
+			sprite_frame_custom.add_frame("default", frame)
 	playerAni.sprite_frames = sprite_frame_custom
-	playerAni.play(player)
+	playerAni.play("default")
 	pass
 
 # 监听输入
@@ -90,6 +97,13 @@ func _on_drop_item_area_body_entered(body):
 
 func _on_stop_area_body_entered(body):
 	if body.is_in_group("drop_item"):
+		self.gold += 1
+		self.now_exp += 1
+		if self.now_exp >= self.max_exp:
+			self.now_exp = 0
+			self.level += 1
 		if body.has_method("pick_up"):
 			body.pick_up()
+	if body.is_in_group("enemy"):
+		now_hp -= 1
 	pass # Replace with function body.

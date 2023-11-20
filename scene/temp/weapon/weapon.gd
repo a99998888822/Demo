@@ -11,9 +11,10 @@ var bullet_speed = 2000
 var bullet_hurt = 1
 var attack_enemies = []
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene t ree for the first time.
 func _ready():
 	weaponAni.material.set_shader_parameter("color", Color(selected_level))
+	timer.wait_time = bullet_shoot_time
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
