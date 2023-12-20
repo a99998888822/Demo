@@ -1,22 +1,28 @@
-extends CharacterBody2D
+extends Player
 
 @onready var playerAni = $PlayerAnimation
 
 var dir = Vector2.ZERO # 移动方向
-var speed = 500 # 
 var flip = false # 翻转
 
-var now_hp = 100
-var max_hp = 100
-var max_exp = 5
-var now_exp = 0
-var level = 1
-var gold = 0
+var level_add_num = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	choose_player("player2")
+	init_attr()
 	pass # Replace with function body.
+
+# 初始化属性
+func init_attr():
+	speed = 500
+	now_hp = 10
+	max_hp = 10
+	max_exp = 5
+	exp = 0
+	level = 1
+	gold = 0
+	pass
 
 # 鼠标的移动方式
 func mouse_move():

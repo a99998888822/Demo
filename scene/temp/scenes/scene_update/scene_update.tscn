@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1246ujh48vao"]
+[gd_scene load_steps=8 format=3 uid="uid://d1246ujh48vao"]
+
+[ext_resource type="Script" path="res://scene/temp/scenes/scene_update/scene_update.gd" id="1_7m3kn"]
+[ext_resource type="Texture2D" uid="uid://c6gus6sxaccvu" path="res://scene/temp/scenes/scene_update/assets/basic_hurt.png" id="1_8ur8i"]
+[ext_resource type="Texture2D" uid="uid://e4akf2dl5342" path="res://scene/temp/drop_items/assets/gold.png" id="2_04cik"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khja6"]
 bg_color = Color(0.294118, 0.294118, 0.294118, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1tmy"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2g24p"]
+content_margin_left = 10.0
+bg_color = Color(0.396078, 0.396078, 0.396078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqdg1"]
+content_margin_left = 10.0
+bg_color = Color(0.396078, 0.396078, 0.396078, 1)
+
 [node name="scene_update" type="CanvasLayer"]
+script = ExtResource("1_7m3kn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -13,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.313726)
 
-[node name="attr_item_chose" type="GridContainer" parent="."]
+[node name="attr_item_choose" type="GridContainer" parent="."]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -25,12 +42,12 @@ grow_vertical = 2
 theme_override_constants/h_separation = 20
 columns = 4
 
-[node name="attr_item_template" type="Panel" parent="attr_item_chose"]
+[node name="attr_item_template" type="Panel" parent="attr_item_choose"]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="attr_item_chose/attr_item_template"]
+[node name="Button" type="Button" parent="attr_item_choose/attr_item_template"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -46,9 +63,160 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_khja6")
 text = "选择"
 
-[node name="MarginContainer" type="MarginContainer" parent="attr_item_chose/attr_item_template"]
+[node name="MarginContainer" type="MarginContainer" parent="attr_item_choose/attr_item_template"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 118.0
+offset_bottom = 139.0
 grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="attr_item_choose/attr_item_template/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="attr_item_choose/attr_item_template/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_8ur8i")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="attr_item_choose/attr_item_template/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="upgrade_name" type="Label" parent="attr_item_choose/attr_item_template/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "攻击力"
+
+[node name="label" type="Label" parent="attr_item_choose/attr_item_template/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "升级"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="attr_item_choose/attr_item_template"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = 11.0
+offset_right = -13.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[color=green]+3[/color] 基础伤害"
+fit_content = true
+
+[node name="upgrade" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_top = 225.0
+offset_right = 79.0
+offset_bottom = 298.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "升级！"
+
+[node name="refresh" type="Button" parent="."]
+offset_left = 603.0
+offset_top = 722.0
+offset_right = 741.0
+offset_bottom = 780.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_t1tmy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2g24p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iqdg1")
+text = "刷新 -2"
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="refresh"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -33.0
+offset_right = 13.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_04cik")
+
+[node name="attr" type="Panel" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -558.0
+offset_top = -388.0
+offset_right = -57.0
+offset_bottom = 389.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="attr"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="attr/MarginContainer"]
+layout_mode = 2
+
+[node name="attr_list" type="VBoxContainer" parent="attr/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="attr_template" type="HBoxContainer" parent="attr/MarginContainer/ScrollContainer/attr_list"]
+layout_mode = 2
+
+[node name="attr_name" type="Label" parent="attr/MarginContainer/ScrollContainer/attr_list/attr_template"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "最大血量"
+
+[node name="attr_value" type="Label" parent="attr/MarginContainer/ScrollContainer/attr_list/attr_template"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="attr"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "属性"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="continue" type="Button" parent="."]
+offset_left = 1738.0
+offset_top = 964.0
+offset_right = 1862.0
+offset_bottom = 1047.0
+theme_override_font_sizes/font_size = 30
+text = "继续"
