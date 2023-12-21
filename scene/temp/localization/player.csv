@@ -1,0 +1,12 @@
+id,zh,en
+basic_hurt,基础伤害叠加,basic_hurt
+basic_hurt_multiple,基础伤害倍数,basic_hurt_multiple
+speed,速度,speed
+now_hp,当前血量,now_hp
+max_hp,最大血量,max_hp
+level,当前等级,level
+max_exp,最大经验,max_exp
+now_exp,当前经验,now_exp
+exp_get,经验获取叠加,exp_get
+gold,当前金币,gold
+gold_get,金币获取叠加,gold_get

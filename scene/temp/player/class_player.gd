@@ -24,7 +24,7 @@ var level = 1
 var max_exp = 5
 
 # 当前经验
-var exp = 0
+var now_exp = 0
 
 # 经验获取叠加
 var exp_get = 0

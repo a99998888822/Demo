@@ -10,6 +10,8 @@ extends CanvasLayer
 @onready var upgrade_btn = $upgrade
 @onready var continue_btn = $continue
 
+var player = null
+
 const ATTR_GROUP = {
 	"attack":{
 		"name": "攻击力",
@@ -84,14 +86,12 @@ const attr_data = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# todo 待优化
-	attr_template.hide()
-	attr_item_template.hide()
-	init()
+	player = get_tree().get_first_node_in_group("player")
 	pass # Replace with function body.
 
 # 初始化
 func init():
+	self.show()
 	# 加载属性选择
 	gen_attr_choose()  
 	# 加载角色属性
@@ -100,24 +100,50 @@ func init():
 	
 # 加载属性选择
 func gen_attr_choose():
-	for item in attr_item_choose.get_children():
-		if item.is_visible():
-			attr_item_choose.remove_child(item)
-			item.queue_free()
+	var keys = attr_data.keys()
 	for item in range(4):
-		var attr_item = attr_item_template.duplicate()
-		attr_item.show()
 		# 获取一个随机的属性选项
-		var keys = attr_data.keys()
 		var num = randi_range(0, keys.size()-1)
-		var attr_choosen_data = attr_data[keys[num]]
-		attr_item.get_node("MarginContainer/HBoxContainer/TextureRect").texture = load("res://scene/temp/scenes/scene_update/assets/"+ attr_choosen_data.group[attr_choosen_data.type] +".png")
-		
-		attr_item_choose.add_child(attr_item)
+		var attr_choosen_data = attr_data[keys[num]].group[attr_data[keys[num]].type]
+		var range = attr_data[keys[num]].range.split("-")
+		var attr_value = randi_range(int(range[0]), int(range[1]))
+		# 如果已存在子节点，则修改子节点属性
+		print("size is " + str(attr_item_choose.get_children().size()) + "item is "+ str(item))
+		var attr_item
+		if attr_item_choose.get_children().size() > item:
+			attr_item = attr_item_choose.get_child(item)
+		else:
+			# 如果不存在子节点，则新建
+			attr_item = attr_item_template.duplicate()
+		# 设置节点树的相关属性
+		attr_item.get_node("MarginContainer/HBoxContainer/upgrade_img").texture = load("res://scene/temp/scenes/scene_update/assets/"+ attr_choosen_data.img +".png")
+		attr_item.get_node("MarginContainer/HBoxContainer/VBoxContainer/upgrade_name").text = attr_choosen_data.name
+		attr_item.get_node("upgrade_value").text = "[color=green]" + str(attr_value) +"[/color] " + attr_choosen_data.name
+		attr_item.get_node("upgrade_choosen_btn").pressed.connect(choose_attr.bind({
+			"key": keys[num],
+			"attr": attr_data[keys[num]],
+			"val": attr_value
+		}))
+		if attr_item_choose.get_children().size() <= item:
+			attr_item_choose.add_child(attr_item)
+	pass
+	
+# 绑定按钮点击事件
+func choose_attr(attr_info):
+	player[attr_info.key] += attr_info.val
+	gen_attr_choose()
 	pass
 
 # 加载角色属性
 func load_player_attr():
+	var prop_list = player.get_script().get_base_script().get_script_property_list()
+	attr_template.hide()
+	for prop in prop_list:
+		if prop.name.rfind(".gd") == -1:
+			var attr_item = attr_template.duplicate()
+			attr_item.get_node("attr_name").text = str(prop.name)
+			attr_item.get_node("attr_value").text = str(player[prop.name])
+			attr_list.add_child(attr_item)
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

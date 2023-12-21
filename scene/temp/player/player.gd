@@ -19,7 +19,7 @@ func init_attr():
 	now_hp = 10
 	max_hp = 10
 	max_exp = 5
-	exp = 0
+	now_exp = 0
 	level = 1
 	gold = 0
 	pass

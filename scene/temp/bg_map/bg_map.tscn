@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://biv0lkmumys8m"]
+[gd_scene load_steps=9 format=3 uid="uid://biv0lkmumys8m"]
 
 [ext_resource type="Script" path="res://scene/temp/bg_map/bg_map.gd" id="1_os6q6"]
 [ext_resource type="Texture2D" uid="uid://dp7ktf6ww06o5" path="res://scene/temp/bg_map/bg.png" id="2_gayx0"]
 [ext_resource type="PackedScene" uid="uid://bf1dd4kt86mgf" path="res://scene/temp/enemy/now_enemies.tscn" id="4_qbs4i"]
 [ext_resource type="PackedScene" uid="uid://bq5g0d1xge0qx" path="res://scene/temp/player/player.tscn" id="4_r537j"]
 [ext_resource type="PackedScene" uid="uid://cy6e0gnpvbfte" path="res://scene/temp/UI/game_ui.tscn" id="5_m80md"]
+[ext_resource type="PackedScene" uid="uid://d1246ujh48vao" path="res://scene/temp/scenes/scene_update/scene_update.tscn" id="6_s4qfa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ropnh"]
 texture = ExtResource("2_gayx0")
@@ -112,5 +113,8 @@ position = Vector2(477, 528)
 [node name="now_enemies" parent="." instance=ExtResource("4_qbs4i")]
 
 [node name="game_ui" parent="." instance=ExtResource("5_m80md")]
+
+[node name="scene_update" parent="." instance=ExtResource("6_s4qfa")]
+visible = false
 
 [connection signal="pressed" from="Button" to="." method="random_tile"]

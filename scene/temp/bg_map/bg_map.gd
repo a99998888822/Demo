@@ -24,3 +24,9 @@ func random_tile():
 			# 层级 起始坐标 tilemap素材的索引 索引所处图块的范围  
 			tilemap.set_cell(1, cell_pos, 1, Vector2i(18, 1))
 	pass
+
+
+func _on_game_ui_round_end():
+	get_tree().paused = true
+	$scene_update.init()
+	pass
