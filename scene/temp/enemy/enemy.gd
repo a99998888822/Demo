@@ -21,7 +21,8 @@ func _process(delta):
 
 # 受击函数
 func enemy_hurt(hurt):
-	self.hp -= hurt
+	var final_hurt = (hurt + target.basic_hurt) * target.basic_hurt_multiple
+	self.hp -= final_hurt
 	enemy_flash()
 	GameMain.animation_scene_obj.run_animation({
 		"box": self,

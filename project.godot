@@ -62,6 +62,10 @@ ui_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://scene/temp/localization/player.en.translation", "res://scene/temp/localization/player.zh.translation")
+
 [layer_names]
 
 2d_physics/layer_1="player"

@@ -118,3 +118,5 @@ position = Vector2(477, 528)
 visible = false
 
 [connection signal="pressed" from="Button" to="." method="random_tile"]
+[connection signal="round_end" from="game_ui" to="." method="_on_game_ui_round_end"]
+[connection signal="continue_game" from="scene_update" to="." method="_on_scene_update_continue_game"]

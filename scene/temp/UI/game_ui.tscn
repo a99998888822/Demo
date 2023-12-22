@@ -13,6 +13,8 @@ bg_color = Color(0.976471, 0.341176, 0.505882, 1)
 bg_color = Color(0.235294, 0.705882, 0.368627, 1)
 
 [node name="game_ui" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_upnte")
 
 [node name="status" type="MarginContainer" parent="."]
 offset_top = 10.0
@@ -48,7 +50,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_udeef")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q2nsg")
 value = 50.0
 show_percentage = false
-script = ExtResource("1_upnte")
 
 [node name="Label" type="Label" parent="status/VBoxContainer/hp_value/HBoxContainer/hp_value_bar"]
 layout_mode = 1
@@ -150,3 +151,46 @@ anchors_preset = 0
 position = Vector2(-16, 12)
 scale = Vector2(2, 2)
 texture = ExtResource("1_apour")
+
+[node name="countdown" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="now_round" type="Label" parent="countdown"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 8.0
+offset_right = 21.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "第1波"
+horizontal_alignment = 1
+
+[node name="time_show" type="Label" parent="countdown"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 43.0
+offset_right = 20.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "40
+"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="countdown"]
+
+[connection signal="timeout" from="countdown/Timer" to="." method="_on_timer_timeout"]

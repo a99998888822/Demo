@@ -7,10 +7,11 @@ extends CanvasLayer
 @onready var attr_template = $attr/MarginContainer/ScrollContainer/attr_list/attr_template
 
 @onready var refresh_btn = $refresh
-@onready var upgrade_btn = $upgrade
+@onready var upgrade = $upgrade
 @onready var continue_btn = $continue
 
 var player = null
+signal continue_game
 
 const ATTR_GROUP = {
 	"attack":{
@@ -91,9 +92,20 @@ func _ready():
 
 # 初始化
 func init():
+	# 设置本地化-选择中文
+	TranslationServer.set_locale('zh')
 	self.show()
-	# 加载属性选择
-	gen_attr_choose()  
+	# 升级相关菜单的显示
+	if player.level_add_num > 0:
+		# 如果用户升级了，则展示
+		attr_item_choose.show()
+		refresh_btn.show()
+		upgrade.show()
+		# 加载属性选择
+		gen_attr_choose()  
+	else:
+		# 如果用户没升级，则仅展示继续按钮
+		continue_btn.show()
 	# 加载角色属性
 	load_player_attr()
 	pass
@@ -131,21 +143,53 @@ func gen_attr_choose():
 # 绑定按钮点击事件
 func choose_attr(attr_info):
 	player[attr_info.key] += attr_info.val
-	gen_attr_choose()
+	player.level_add_num -= 1
+	# 如果用户升级次数用完，则隐藏升级相关信息，展示继续按钮
+	if player.level_add_num == 0:
+		attr_item_choose.hide()
+		refresh_btn.hide()
+		upgrade.hide()
+		continue_btn.show()
+	else:
+		gen_attr_choose()
+	# 重新加载一次用户属性
+	load_player_attr()
 	pass
 
 # 加载角色属性
 func load_player_attr():
-	var prop_list = player.get_script().get_base_script().get_script_property_list()
+	# todo 这里有优化空间
+	# 隐藏模板节点
 	attr_template.hide()
+	# 清除除模板节点以外的其他节点
+	for item in attr_list.get_children():
+		if item.is_visible():
+			attr_list.remove_child(item)
+			item.queue_free()
+	# 读取角色脚本的属性
+	var prop_list = player.get_script().get_base_script().get_script_property_list()
 	for prop in prop_list:
 		if prop.name.rfind(".gd") == -1:
 			var attr_item = attr_template.duplicate()
-			attr_item.get_node("attr_name").text = str(prop.name)
+			attr_item.get_node("attr_name").text = tr(prop.name)
 			attr_item.get_node("attr_value").text = str(player[prop.name])
+			attr_item.show()
 			attr_list.add_child(attr_item)
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+# 点击刷新按钮
+func _on_refresh_pressed():
+	if player.gold >= 2:
+		player.gold -= 2
+		gen_attr_choose()
+		load_player_attr()
+	pass # Replace with function body.
+
+# 点击继续按钮
+func _on_continue_pressed():
+	emit_signal("continue_game")
+	pass # Replace with function body.
