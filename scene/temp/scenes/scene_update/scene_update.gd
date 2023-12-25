@@ -58,7 +58,7 @@ const attr_data = {
 		"type": "type1",
 		"range": "1-5"
 	},
-	"basic_multiple": {
+	"basic_hurt_multiple": {
 		"group": ATTR_GROUP.attack,
 		"type": "type2",
 		"range": "2-4"
@@ -131,7 +131,11 @@ func gen_attr_choose():
 		attr_item.get_node("MarginContainer/HBoxContainer/upgrade_img").texture = load("res://scene/temp/scenes/scene_update/assets/"+ attr_choosen_data.img +".png")
 		attr_item.get_node("MarginContainer/HBoxContainer/VBoxContainer/upgrade_name").text = attr_choosen_data.name
 		attr_item.get_node("upgrade_value").text = "[color=green]" + str(attr_value) +"[/color] " + attr_choosen_data.name
-		attr_item.get_node("upgrade_choosen_btn").pressed.connect(choose_attr.bind({
+		var pressed_singal = attr_item.get_node("upgrade_choosen_btn").pressed
+		# 如果该信号已经绑定了该方法，则取消绑定重新绑（todo 考虑下emit？）
+		if pressed_singal.is_connected(choose_attr): 
+			pressed_singal.disconnect(choose_attr)
+		pressed_singal.connect(choose_attr.bind({
 			"key": keys[num],
 			"attr": attr_data[keys[num]],
 			"val": attr_value
