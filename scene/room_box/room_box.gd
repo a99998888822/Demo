@@ -54,11 +54,11 @@ func init_basic_room(size):
 				now_position.x -= GlobalConstant.room_width
 			Direction.RIGHT:
 				now_position.x += GlobalConstant.room_width
-		print(str(i) + ":" + str(dir))
+		# print(str(i) + ":" + str(dir))
 		from_direction = dir
 		if room_dict.has(now_position):
 			# 当前位置已存在房间,重新开始循环
-			print("当前位置已存在房间,重新开始循环")
+			# print("当前位置已存在房间,重新开始循环")
 			size += 1
 		else:
 			# 如果是最后一个房间，修改颜色，设置出口

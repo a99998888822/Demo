@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgkf65je05ln"]
+
+[ext_resource type="Texture2D" uid="uid://dadvon3rx3apd" path="res://scene/UI/tips/assets/tips.png" id="1_b6b6a"]
+
+[node name="tips" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_b6b6a")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 208.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 12
+text = "示例文本按时吃vvcdsdasdasdasdsadasdw21定位到我的娃我的宠物全额多次当前温度qdwqw"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
