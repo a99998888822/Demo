@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var now_round = $countdown/now_round
 @onready var time_show = $countdown/time_show
 @onready var timer = $countdown/Timer
+@onready var gold_tips = $gold/tips
 
 # 角色与信号
 var player
@@ -27,6 +28,8 @@ var round_time = 0:
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	init_round()
+	# 初始化tips
+	gold_tips.init(tr("gold_tips"))
 	pass # Replace with function body.
 
 
@@ -37,8 +40,8 @@ func init_round():
 	timer.start()
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta):
 	hp_value_bar.max_value = player.max_hp
 	hp_value_bar.value = player.now_hp
 	hp_value_bar.get_node("Label").text = str(player.now_hp) + '/' + str(player.max_hp)

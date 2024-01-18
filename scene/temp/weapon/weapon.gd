@@ -17,8 +17,8 @@ func _ready():
 	timer.wait_time = bullet_shoot_time
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta):
 	if attack_enemies.size() != 0:
 		self.look_at(attack_enemies[0].position)
 	else:

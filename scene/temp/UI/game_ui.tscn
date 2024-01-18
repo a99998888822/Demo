@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy6e0gnpvbfte"]
+[gd_scene load_steps=7 format=3 uid="uid://cy6e0gnpvbfte"]
 
 [ext_resource type="Texture2D" uid="uid://e4akf2dl5342" path="res://scene/temp/drop_items/assets/gold.png" id="1_apour"]
 [ext_resource type="Script" path="res://scene/temp/UI/game_ui.gd" id="1_upnte"]
+[ext_resource type="PackedScene" uid="uid://cgkf65je05ln" path="res://scene/UI/tips/tips.tscn" id="3_8xb8s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udeef"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -151,6 +152,10 @@ anchors_preset = 0
 position = Vector2(-16, 12)
 scale = Vector2(2, 2)
 texture = ExtResource("1_apour")
+
+[node name="tips" parent="gold" instance=ExtResource("3_8xb8s")]
+offset = Vector2(90, 127)
+transform = Transform2D(1, 0, 0, 1, 90, 127)
 
 [node name="countdown" type="Control" parent="."]
 layout_mode = 3

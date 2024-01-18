@@ -40,10 +40,10 @@ func mouse_move():
 	move_and_slide()
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. '_delta' is the elapsed time since the previous frame.
 # todo 待测试
 @warning_ignore("unused_parameter")
-func _process(delta):
+func _process(_delta):
 	# 按照方向键移动
 	dir = Vector2(0,0)
 	if Input.is_action_pressed("ui_up"):

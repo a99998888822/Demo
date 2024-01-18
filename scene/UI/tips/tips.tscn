@@ -1,22 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgkf65je05ln"]
+[gd_scene load_steps=3 format=3 uid="uid://cgkf65je05ln"]
 
-[ext_resource type="Texture2D" uid="uid://dadvon3rx3apd" path="res://scene/UI/tips/assets/tips.png" id="1_b6b6a"]
+[ext_resource type="Script" path="res://scene/UI/tips/tips.gd" id="1_nv6jy"]
+[ext_resource type="Texture2D" uid="uid://da5tpln50t62v" path="res://scene/UI/tips/assets/images.png" id="2_pxwit"]
 
 [node name="tips" type="CanvasLayer"]
+script = ExtResource("1_nv6jy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 0.5)
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_b6b6a")
+texture = ExtResource("2_pxwit")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 208.0
-offset_bottom = 83.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1720.0
+offset_bottom = -997.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "示例文本按时吃vvcdsdasdasdasdsadasdw21定位到我的娃我的宠物全额多次当前温度qdwqw"
+text = "示例文本按时吃vvcdsdasdasdasdsadasdw21定位到我的娃"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]

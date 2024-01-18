@@ -3,7 +3,6 @@ extends Node2D
 @onready var weapon_template = preload("res://scene/temp/weapon/weapon.tscn")
 
 var weapon_redius = 230
-var weapon_num = 0
 const weapon_level = {
 	level_1 = "#b0c3d9",
 	level_2 = "#4b69ff",
@@ -32,6 +31,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta):
 	pass

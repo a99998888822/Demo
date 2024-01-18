@@ -117,8 +117,8 @@ func gen_attr_choose():
 		# 获取一个随机的属性选项
 		var num = randi_range(0, keys.size()-1)
 		var attr_choosen_data = attr_data[keys[num]].group[attr_data[keys[num]].type]
-		var range = attr_data[keys[num]].range.split("-")
-		var attr_value = randi_range(int(range[0]), int(range[1]))
+		var ranges = attr_data[keys[num]].range.split("-")
+		var attr_value = randi_range(int(ranges[0]), int(ranges[1]))
 		# 如果已存在子节点，则修改子节点属性
 		print("size is " + str(attr_item_choose.get_children().size()) + "item is "+ str(item))
 		var attr_item
@@ -182,7 +182,7 @@ func load_player_attr():
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # 点击刷新按钮

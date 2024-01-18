@@ -10,3 +10,4 @@ now_exp,当前经验,now_exp
 exp_get,经验获取叠加,exp_get
 gold,当前金币,gold
 gold_get,金币获取叠加,gold_get
+gold_tips,已获取的金币，在拾取金币的时候同时获得经验值,already gotten gold，also retain exp while pick gold
