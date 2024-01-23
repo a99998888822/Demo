@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var margin_container = $MarginContainer
-@onready var label = $MarginContainer/Label
+@onready var label = $MarginContainer/Panel/RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,25 +15,23 @@ func _process(_delta):
 		margin_container.position = mc_position
 	pass
 
+# 初始化tips内容
+func init(tips_text):
+	label.text = tips_text
+	pass
+
 # 当鼠标接触到图标
-func _on_control_mouse_entered():
-	print("鼠标接触到图标")
-	margin_container.show()
+func _on_area_2d_mouse_entered():
 	# 调整一下tips框框的大小
 	var mc_size = label.size
 	mc_size.x = 200
 	mc_size.y += 20
 	margin_container.size = mc_size
+	margin_container.show()
 	pass # Replace with function body.
 
 
 # 当鼠标停止接触图标
-func _on_control_mouse_exited():
-	print("当鼠标停止接触图标")
+func _on_area_2d_mouse_exited():
 	margin_container.hide()
 	pass # Replace with function body.
-
-# 初始化tips内容
-func init(tips_text):
-	label.text = tips_text
-	pass

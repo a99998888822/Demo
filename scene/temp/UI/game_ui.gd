@@ -36,7 +36,7 @@ func _ready():
 # 初始回合和倒计时
 func init_round():
 	now_round_num += 1
-	round_time = (5 + now_round_num * 5)
+	round_time = (5000 + now_round_num * 5)
 	timer.start()
 	pass
 

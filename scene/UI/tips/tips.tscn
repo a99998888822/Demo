@@ -1,42 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgkf65je05ln"]
+[gd_scene load_steps=4 format=3 uid="uid://cgkf65je05ln"]
 
 [ext_resource type="Script" path="res://scene/UI/tips/tips.gd" id="1_nv6jy"]
 [ext_resource type="Texture2D" uid="uid://da5tpln50t62v" path="res://scene/UI/tips/assets/images.png" id="2_pxwit"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_718kd"]
+radius = 100.0
+
 [node name="tips" type="CanvasLayer"]
 script = ExtResource("1_nv6jy")
 
-[node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_pxwit")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1720.0
-offset_bottom = -997.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_718kd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 200.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "示例文本按时吃vvcdsdasdasdasdsadasdw21定位到我的娃"
-vertical_alignment = 1
-autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 10.0
+fit_content = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

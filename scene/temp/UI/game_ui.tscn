@@ -137,26 +137,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="gold" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = 48.0
-offset_top = 115.0
-offset_right = 88.0
-offset_bottom = 141.0
-text = "100"
-
-[node name="Control" type="Control" parent="gold"]
-anchors_preset = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="gold/Control"]
-position = Vector2(-16, 12)
-scale = Vector2(2, 2)
-texture = ExtResource("1_apour")
-
-[node name="tips" parent="gold" instance=ExtResource("3_8xb8s")]
-offset = Vector2(90, 127)
-transform = Transform2D(1, 0, 0, 1, 90, 127)
-
 [node name="countdown" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 5
@@ -197,5 +177,25 @@ text = "40
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="countdown"]
+
+[node name="gold" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 48.0
+offset_top = 115.0
+offset_right = 88.0
+offset_bottom = 141.0
+text = "100"
+
+[node name="tips" parent="gold" instance=ExtResource("3_8xb8s")]
+offset = Vector2(90, 127)
+transform = Transform2D(1, 0, 0, 1, 90, 127)
+
+[node name="Control" type="Control" parent="gold"]
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="gold/Control"]
+position = Vector2(-16, 12)
+scale = Vector2(2, 2)
+texture = ExtResource("1_apour")
 
 [connection signal="timeout" from="countdown/Timer" to="." method="_on_timer_timeout"]
