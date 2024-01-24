@@ -1,6 +1,7 @@
 extends Player
 
 @onready var playerAni = $PlayerAnimation
+@onready var floating_words = preload("res://scene/UI/floating_words/floating_words.tscn")
 
 var dir = Vector2.ZERO # 移动方向
 var flip = false # 翻转
@@ -98,6 +99,10 @@ func _input(event):
 func _on_drop_item_area_body_entered(body):
 	if body.is_in_group("drop_item"):
 		if body.has_method("pick"):
+			var floating_words_obj = floating_words.instantiate()
+			floating_words_obj.text = "gold 1"
+			floating_words_obj.color = "#FFFF00"
+			add_child(floating_words_obj)
 			body.pick()
 	pass # Replace with function body.
 

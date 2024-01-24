@@ -1,9 +1,19 @@
-[gd_scene format=3 uid="uid://d1vobi1sjib3l"]
+[gd_scene load_steps=4 format=3 uid="uid://d1vobi1sjib3l"]
 
-[node name="floating_words" type="CanvasLayer"]
+[ext_resource type="Script" path="res://scene/UI/floating_words/floating_words.gd" id="1_n3u3i"]
+[ext_resource type="Shader" path="res://scene/UI/floating_words/floating_words.gdshader" id="2_522dc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rp3cg"]
+shader = ExtResource("2_522dc")
+shader_parameter/show_color = Color(1, 1, 1, 1)
+shader_parameter/show_opacity = 1.0
+
+[node name="floating_words" type="CharacterBody2D"]
+script = ExtResource("1_n3u3i")
 
 [node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_rp3cg")
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "示例文字"
+theme_override_font_sizes/font_size = 48
+text = "示例"
