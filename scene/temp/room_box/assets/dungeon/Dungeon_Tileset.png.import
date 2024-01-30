@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n81xvu77xjn5"
-path="res://.godot/imported/Map_Rooms.png-19312280764127d4e63f3da7a3584774.ctex"
+uid="uid://bkqi6ghipwbur"
+path="res://.godot/imported/Dungeon_Tileset.png-07789c26df4a8c9d693f7a5be4a7d2ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/room_box/assets/dungeon/Map_Rooms.png"
-dest_files=["res://.godot/imported/Map_Rooms.png-19312280764127d4e63f3da7a3584774.ctex"]
+source_file="res://scene/temp/room_box/assets/dungeon/Dungeon_Tileset.png"
+dest_files=["res://.godot/imported/Dungeon_Tileset.png-07789c26df4a8c9d693f7a5be4a7d2ff.ctex"]
 
 [params]
 

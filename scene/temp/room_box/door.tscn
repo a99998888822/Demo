@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://buw38gjtdt6p1"]
 
-[ext_resource type="Texture2D" uid="uid://n81xvu77xjn5" path="res://scene/room_box/assets/dungeon/Map_Rooms.png" id="1_pjcdp"]
-[ext_resource type="Shader" path="res://scene/room_box/simple_room.gdshader" id="1_up3ye"]
+[ext_resource type="Texture2D" uid="uid://n81xvu77xjn5" path="res://scene/temp/room_box/assets/dungeon/Map_Rooms.png" id="1_pjcdp"]
+[ext_resource type="Shader" path="res://scene/temp/room_box/simple_room.gdshader" id="1_up3ye"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eg6cq"]
 shader = ExtResource("1_up3ye")

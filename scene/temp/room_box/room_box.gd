@@ -12,7 +12,8 @@ const room_color = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	init(20)
+	# init(20)
+	#
 	pass # Replace with function body.
 
 
@@ -121,4 +122,6 @@ func set_door(direction, now_position):
 	self.add_child(door)
 	pass
 			
-	
+# 初始化随机书本
+func init_base_setting_book():
+		

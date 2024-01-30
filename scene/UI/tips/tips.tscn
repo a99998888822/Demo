@@ -25,6 +25,7 @@ offset_right = 200.0
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 190.0

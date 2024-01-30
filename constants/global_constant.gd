@@ -1,8 +1,8 @@
 extends Node
 
 # 资源路径
-const simple_room_path = "res://scene/room_box/simple_room.tscn"
-const door_path = "res://scene/room_box/door.tscn"
+const simple_room_path = "res://scene/temp/room_box/simple_room.tscn"
+const door_path = "res://scene/temp/room_box/door.tscn"
 
 # 随机地图box大小
 const room_width = 1080

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhpi47bddipfp"
-path="res://.godot/imported/Adventurer_Sprite_Sheet.png-b952251e5a06b5b55dfbd2e88e52490c.ctex"
+uid="uid://n81xvu77xjn5"
+path="res://.godot/imported/Map_Rooms.png-79d0cc5acabbd8b2550472f67e175fb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/character/assets/Adventurer_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Adventurer_Sprite_Sheet.png-b952251e5a06b5b55dfbd2e88e52490c.ctex"]
+source_file="res://scene/temp/room_box/assets/dungeon/Map_Rooms.png"
+dest_files=["res://.godot/imported/Map_Rooms.png-79d0cc5acabbd8b2550472f67e175fb6.ctex"]
 
 [params]
 
