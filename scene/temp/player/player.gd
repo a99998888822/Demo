@@ -100,9 +100,9 @@ func _on_drop_item_area_body_entered(body):
 	if body.is_in_group("drop_item"):
 		if body.has_method("pick"):
 			var floating_words_obj = floating_words.instantiate()
-			floating_words_obj.text = "gold 1"
+			floating_words_obj.content = "gold 1"
 			floating_words_obj.color = "#FFFF00"
-			add_child(floating_words_obj)
+			self.add_child(floating_words_obj)
 			body.pick()
 	pass # Replace with function body.
 
