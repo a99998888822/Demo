@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhpi47bddipfp"
-path="res://.godot/imported/Adventurer_Sprite_Sheet.png-b952251e5a06b5b55dfbd2e88e52490c.ctex"
+uid="uid://ccwhgd7u7pdx0"
+path="res://.godot/imported/walking-right.png-50c65e6e716349c8d44ee58635da431e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/character/assets/Adventurer_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Adventurer_Sprite_Sheet.png-b952251e5a06b5b55dfbd2e88e52490c.ctex"]
+source_file="res://scene/character/wizard/assets/walking-right.png"
+dest_files=["res://.godot/imported/walking-right.png-50c65e6e716349c8d44ee58635da431e.ctex"]
 
 [params]
 

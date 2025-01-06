@@ -34,7 +34,7 @@ func mouse_move():
 		flip = false
 	else:
 		flip = true
-	playerAni.flip_h = flip	
+	playerAni.flip_h = flip
 	# 控制移动
 	dir = (mouse_pos -self_pos).normalized()
 	velocity = dir * speed

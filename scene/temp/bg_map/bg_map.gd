@@ -25,15 +25,15 @@ func random_tile():
 	pass
  
 # 回合结束信号
-func _on_game_ui_round_end():
-	get_tree().paused = true
-	$scene_update.init()
-	pass
+# func _on_game_ui_round_end():
+# 	get_tree().paused = true
+# 	$scene_update.init()
+# 	pass
 
 # 继续game信号
-func _on_scene_update_continue_game():
-	get_tree().paused = false
-	$scene_update.hide()
-	$player.now_hp = $player.max_hp
-	$game_ui.init_round()
-	pass # Replace with function body.
+# func _on_scene_update_continue_game():
+# 	get_tree().paused = false
+# 	$scene_update.hide()
+# 	$player.now_hp = $player.max_hp
+# 	$game_ui.init_round()
+# 	pass # Replace with function body.

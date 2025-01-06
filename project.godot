@@ -11,20 +11,18 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="res://scene/temp/bg_map/bg_map.tscn"
+run/main_scene="res://scene/bg_map/demo_map.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameMain="*res://scene/GameMain.gd"
-GlobalConstant="*res://constants/global_constant.gd"
+GameMain="*res://scene/temp/GameMain.gd"
 
 [display]
 
-window/size/viewport_width=576
-window/size/viewport_height=324
-window/size/initial_position_type=0
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [input]

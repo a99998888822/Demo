@@ -167,7 +167,7 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 43.0
+offset_top = 40.0
 offset_right = 20.0
 offset_bottom = 81.0
 grow_horizontal = 2
@@ -187,6 +187,7 @@ offset_bottom = 141.0
 text = "100"
 
 [node name="tips" parent="gold" instance=ExtResource("3_8xb8s")]
+visible = false
 offset = Vector2(90, 127)
 transform = Transform2D(1, 0, 0, 1, 90, 127)
 
