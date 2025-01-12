@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:scene/character/wizard/assets/walking-right.png.import
-uid="uid://ccwhgd7u7pdx0"
+uid="uid://dhhktettm4r3c"
 path="res://.godot/imported/walking-right.png-50c65e6e716349c8d44ee58635da431e.ctex"
-========
-uid="uid://bkqi6ghipwbur"
-path="res://.godot/imported/Dungeon_Tileset.png-07789c26df4a8c9d693f7a5be4a7d2ff.ctex"
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/room_box/assets/dungeon/Dungeon_Tileset.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:scene/character/wizard/assets/walking-right.png.import
 source_file="res://scene/character/wizard/assets/walking-right.png"
 dest_files=["res://.godot/imported/walking-right.png-50c65e6e716349c8d44ee58635da431e.ctex"]
-========
-source_file="res://scene/temp/room_box/assets/dungeon/Dungeon_Tileset.png"
-dest_files=["res://.godot/imported/Dungeon_Tileset.png-07789c26df4a8c9d693f7a5be4a7d2ff.ctex"]
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/room_box/assets/dungeon/Dungeon_Tileset.png.import
 
 [params]
 

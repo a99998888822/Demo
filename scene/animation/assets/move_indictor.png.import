@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31r0d20nq3u2"
-path="res://.godot/imported/Adventurer_Sprite_Sheet.png-15ebe04f013872a7cee47fc90ecb4284.ctex"
+uid="uid://bals8wmytvwa7"
+path="res://.godot/imported/move_indictor.png-3be8ef23589338622d1e2ba0a9c566f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/character/copyed_character/Adventurer_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Adventurer_Sprite_Sheet.png-15ebe04f013872a7cee47fc90ecb4284.ctex"]
+source_file="res://scene/animation/assets/move_indictor.png"
+dest_files=["res://.godot/imported/move_indictor.png-3be8ef23589338622d1e2ba0a9c566f8.ctex"]
 
 [params]
 

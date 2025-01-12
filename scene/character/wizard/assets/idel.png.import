@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:scene/character/wizard/assets/idel.png.import
-uid="uid://weu3gemljisj"
+uid="uid://dkm6g2uege1gm"
 path="res://.godot/imported/idel.png-8019c2f08eaa261b2c86b4d8b5c5f1e0.ctex"
-========
-uid="uid://n81xvu77xjn5"
-path="res://.godot/imported/Map_Rooms.png-79d0cc5acabbd8b2550472f67e175fb6.ctex"
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/room_box/assets/dungeon/Map_Rooms.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:scene/character/wizard/assets/idel.png.import
 source_file="res://scene/character/wizard/assets/idel.png"
 dest_files=["res://.godot/imported/idel.png-8019c2f08eaa261b2c86b4d8b5c5f1e0.ctex"]
-========
-source_file="res://scene/temp/room_box/assets/dungeon/Map_Rooms.png"
-dest_files=["res://.godot/imported/Map_Rooms.png-79d0cc5acabbd8b2550472f67e175fb6.ctex"]
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/room_box/assets/dungeon/Map_Rooms.png.import
 
 [params]
 

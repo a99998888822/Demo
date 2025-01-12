@@ -3,7 +3,7 @@ extends Node
 # 配置中设置自动加载
 
 # 动画
-var animation_scene = preload("res://scene/temp/animation/animations.tscn")
+var animation_scene = preload("res://scene/animation/animations.tscn")
 var animation_scene_obj = null 
 # 物体（静止）
 # var drop_items_scene = preload("res://scene/temp/drop_items/drop_items.tscn")

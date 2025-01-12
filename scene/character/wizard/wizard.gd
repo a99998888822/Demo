@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 var dir = Vector2.ZERO # 移动方向
 var flip = false # 翻转
-var can_move = false # 是否点击移动
 var target_pos = Vector2.ZERO # 移动的目标地址
 var speed = 300 # 速度
 var relative_pos_min_limit = 5 # 位移的阈值
@@ -35,14 +34,17 @@ func _process(_delta):
 		velocity = dir * speed
 		move_and_slide()
 	else:
-		can_move = false
 		wizardAni.play("idle") # 切换到待机动画
 	pass
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		target_pos = get_global_mouse_position()
-		can_move = true
+		GameMain.animation_scene_obj.run_animation({
+			"ani_name": "move_indicator",
+			"position": target_pos,
+			"scale": Vector2(0.5, 0.5)
+		})
 		
 # 方向键移动
 func move_by_button():

@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhpi47bddipfp"
-<<<<<<<< HEAD:scene/character/copyed_character/Adventurer_Sprite_Sheet.png.import
-path="res://.godot/imported/Adventurer_Sprite_Sheet.png-15ebe04f013872a7cee47fc90ecb4284.ctex"
-========
+uid="uid://b2fipa5ymer2l"
 path="res://.godot/imported/Adventurer_Sprite_Sheet.png-9efded186c45e669c3076c84f127c54a.ctex"
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/character/assets/Adventurer_Sprite_Sheet.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:scene/character/copyed_character/Adventurer_Sprite_Sheet.png.import
-source_file="res://scene/character/copyed_character/Adventurer_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Adventurer_Sprite_Sheet.png-15ebe04f013872a7cee47fc90ecb4284.ctex"]
-========
 source_file="res://scene/temp/character/assets/Adventurer_Sprite_Sheet.png"
 dest_files=["res://.godot/imported/Adventurer_Sprite_Sheet.png-9efded186c45e669c3076c84f127c54a.ctex"]
->>>>>>>> fe89df8779fa1c860f4ee87a4d82ff4ecee613a1:scene/temp/character/assets/Adventurer_Sprite_Sheet.png.import
 
 [params]
 

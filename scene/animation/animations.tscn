@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bm7e46fi6nhoe"]
+
+[ext_resource type="Script" path="res://scene/animation/animations.gd" id="1_2ph1w"]
+[ext_resource type="Texture2D" uid="uid://bals8wmytvwa7" path="res://scene/animation/assets/move_indictor.png" id="1_n4tfo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htprn"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc7b8"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrvil"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb3dj"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8cqi"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pixpt"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgy52"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(1920, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7uc1"]
+atlas = ExtResource("1_n4tfo")
+region = Rect2(2240, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsls7"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_htprn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc7b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrvil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb3dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8cqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pixpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgy52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7uc1")
+}],
+"loop": false,
+"name": &"move_indicator",
+"speed": 14.0
+}]
+
+[node name="animations" type="Node2D"]
+script = ExtResource("1_2ph1w")
+
+[node name="all_animations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wsls7")
+animation = &"move_indicator"
+
+[connection signal="animation_finished" from="all_animations" to="." method="_on_all_animation_animation_finished"]
