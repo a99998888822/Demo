@@ -26,6 +26,6 @@ func run_animation(options):
 	ani_temp.get_node("all_animations").play(options.ani_name)
 	pass
 
-func  ():
+func _on_all_animation_animation_finished():
 	self.queue_free()
 	pass # Replace with function body.

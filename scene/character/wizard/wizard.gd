@@ -23,17 +23,26 @@ func _process(_delta):
 	wizardAni.flip_h = flip
 	# 控制移动
 	if relative_pos.length() > relative_pos_min_limit: # 判断是否存在位移
-		# 有位移才翻转控制翻转
-		if target_pos.x < self_pos.x:
-			flip = true
-		else:
-			flip = false	
 		# 切换到跑动动画
 		wizardAni.play("running")
 		dir = relative_pos.normalized()
 		velocity = dir * speed
+		
+		# 计算旋转角度，使动画面朝鼠标位置
+		var angle = dir.angle()
+		rotation = angle # 设置角色的旋转角度
+		
+		# 有位移才翻转控制翻转
+		if target_pos.x < self_pos.x:
+			rotation = angle + PI # 镜像翻转
+			flip = true
+		else:
+			rotation = angle # 正常旋转
+			flip = false
+			
 		move_and_slide()
 	else:
+		rotation = 0
 		wizardAni.play("idle") # 切换到待机动画
 	pass
 	
