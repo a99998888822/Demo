@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://piwsseyvd2ik"
-path="res://.godot/imported/wield_sword.png-b7f46f0c9ffba4fd5b934e0de232e1a3.ctex"
+uid="uid://crykhqodov8p6"
+path="res://.godot/imported/skill_indicator_direct.png-77af441c3944b476f7b5df6c3ce1f081.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/character/wizard/assets/wield_sword.png"
-dest_files=["res://.godot/imported/wield_sword.png-b7f46f0c9ffba4fd5b934e0de232e1a3.ctex"]
+source_file="res://scene/character/wizard/assets/skill_indicator_direct.png"
+dest_files=["res://.godot/imported/skill_indicator_direct.png-77af441c3944b476f7b5df6c3ce1f081.ctex"]
 
 [params]
 

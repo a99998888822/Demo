@@ -92,4 +92,4 @@ layer_2/tile_data = PackedInt32Array(589843, 851968, 1, 524307, 851968, 1, 45877
 
 [node name="wizard" parent="." instance=ExtResource("3_ysg3o")]
 position = Vector2(400, 400)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
