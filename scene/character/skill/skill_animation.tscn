@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6xod4m7qt132"]
+
+[ext_resource type="Script" path="res://scene/character/skill/skill_animation.gd" id="1_gddqw"]
+[ext_resource type="Texture2D" uid="uid://cl8gpo5hvcg8d" path="res://scene/character/skill/asset/sword_animation.png" id="1_ut6na"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h5yr"]
+atlas = ExtResource("1_ut6na")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqaok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h5yr")
+}],
+"loop": false,
+"name": &"sword_aura",
+"speed": 0.3
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fkhx"]
+size = Vector2(5.33333, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0sr3"]
+size = Vector2(16.2083, 43.875)
+
+[node name="skill_indicator" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_gddqw")
+
+[node name="skill_animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eqaok")
+animation = &"sword_aura"
+autoplay = "sword_aura"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_8fkhx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-1.10417, -1.27083)
+shape = SubResource("RectangleShape2D_b0sr3")
+
+[connection signal="animation_finished" from="skill_animation" to="." method="_on_skill_animation_animation_finished"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

@@ -2,18 +2,17 @@ extends CharacterBody2D
 
 @onready var wizardAni = $WizardAnimation
 @onready var skill_indicator = $SkillIndicator
+@onready var skill_animation = preload("res://scene/character/skill/skill_animation.tscn")
 
 # 变量设置
 var dir = Vector2.ZERO # 移动方向
 var flip = false # 翻转
 var target_pos = Vector2.ZERO # 移动的目标地址
 var skill_target_pos = Vector2.ZERO # 技能的目标地址
-
-
-# 常量设置
 var relative_pos_min_limit = 5 # 位移的阈值
 var speed = 300 # 速度
 var skill_indicator_distance = 200 # 技能指示器的距离
+var skill_animation_play = false
 
 # 状态位
 var is_attacking = false # 攻击状态
@@ -90,10 +89,11 @@ func _input(event):
 			"scale": Vector2(0.5, 0.5)
 		})
 	# 鼠标左键控制技能释放指示器
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and is_skill_indicator:
 		skill_target_pos = get_global_mouse_position()
 		is_attacking = true # 设置攻击状态
 		is_skill_indicator = false # 关闭技能指示器
+		skill_release(skill_target_pos)
 	# 键盘A键控制挥剑（打开指示器）
 	if event is InputEventKey and event.key_label == KEY_A and event.is_pressed():
 		if is_skill_indicator:
@@ -126,6 +126,13 @@ func move_by_button():
 	else:
 		wizardAni.play("idle") # 切换到待机动画
 	pass
+
+# 技能释放
+func skill_release(target_position):
+	var skill_ani = skill_animation.instantiate()
+	skill_ani.position = Vector2(0, -60) + self.position
+	skill_ani.dir = (target_position - self.position).normalized()
+	get_tree().root.add_child(skill_ani)
 
 # 接收动画播放完成
 func _on_wizard_animation_animation_finished():
